@@ -13,11 +13,6 @@ variable "environment" {
   type        = string
 }
 
-variable "bucket_name" {
-  description = "S3 Bucket name"
-  type        = string
-}
-
 variable "bucket_identifier" {
   description = "URL safe bucket identifier"
   type        = string

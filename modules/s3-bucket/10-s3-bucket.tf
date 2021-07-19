@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "key_policy" {
 resource "aws_kms_key" "key" {
   tags = var.tags
 
-  description             = "${var.project} ${var.environment} - ${var.bucket_name} Bucket Key"
+  description             = "${var.project} ${var.environment} - ${var.bucket_identifier} Bucket Key"
   deletion_window_in_days = 10
   enable_key_rotation     = true
 
