@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Xunit;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
-
+using FluentAssertions;
 using hello_world;
+using NUnit.Framework;
 
 namespace hello_world.Tests
 {
     public class FunctionTest
     {
-        [Fact]
+        [Test]
         public void TestToUpperFunction()
         {
 
@@ -22,7 +22,7 @@ namespace hello_world.Tests
             var context = new TestLambdaContext();
             var upperCase = function.FunctionHandler("hello world", context);
 
-            Assert.Equal("HELLO WORLD", upperCase);
+            upperCase.Should().BeEquivalentTo("HELLO WORLD");
         }
     }
 }
