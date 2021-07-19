@@ -14,4 +14,11 @@ terraform {
       version = ">= 3.0"
     }
   }
+
+  backend "s3" {
+    region  = "eu-west-2"
+    key     = "services/file-sync-infrastructure/terraform.tfstate"
+    bucket  = "terraform-state-devscratch"
+    encrypt = true
+  }
 }
